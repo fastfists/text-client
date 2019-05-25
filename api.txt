@@ -1,0 +1,9 @@
+/send/<to>/<message>
+/fetch_thread/<number>
+/get_contacts
+/get_updated
+
+message = {
+	sender: "19725970085",
+	text: ""
+}

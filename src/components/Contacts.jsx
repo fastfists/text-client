@@ -1,39 +1,31 @@
 import React, { Component } from 'react';
 import '../App.css';
-import axios from 'axios'
+import axios from 'axios';
+import ChatDisplay from "./ChatDisplay"
 
-class Contacts extends Component {
+export default class Contacts extends Component {
     state = {
         contacts: []
     }
 
-    
     componentDidMount() {
         this.setContacts();
     }
 
     async setContacts() {
-        console.log("hi");
-        const res = await axios.get('http://fastfist.pythonanywhere.com/get_contacts');
-        console.log(res);
+        const res = await axios.get('http://fastfist.pythonanywhere.com/get_updated');
         const contacts = res.data.data;
-        this.setState({ contacts });
+        this.setState({ "contacts": contacts });
         console.log(contacts);
     }
 
     render() {
         console.log(this.props);
-        
         return (
-            <ul>
-                {this.state.contacts.map(number =>
-                    <li>
-                        {number}
-                    </li>
-                )}
-            </ul>
+            <>
+                <ChatDisplay number={"2144028404"}/>
+            </>
         );
+
     }
 }
-
-export default Contacts;
