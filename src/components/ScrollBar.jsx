@@ -8,7 +8,6 @@ export default class Scroll extends Component {
         super(props, ...rest);
         this.handleSpringUpdate = this.handleSpringUpdate.bind(this);
     }
-
     componentDidMount() {
         this.springSystem = new SpringSystem();
         this.spring = this.springSystem.createSpring();
@@ -56,7 +55,6 @@ export default class Scroll extends Component {
     }
 
     render() {
-        setTimeout(() => this.scrollToBottom(),10);
         return (
             <Scrollbars {...this.props} ref="scrollbars" />
         );

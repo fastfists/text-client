@@ -15,7 +15,7 @@ export default class ChatDisplay extends Component {
         }
     }
 
-    componentDidMount() {
+    componentDidUpdate() {
         this.setMessages();
     }
 
@@ -23,7 +23,6 @@ export default class ChatDisplay extends Component {
         var res = await axios.get(`https://fastfist.pythonanywhere.com/fetch_thread/${this.props.number}`)
         var message_thread = res.data.data.messages;
         this.setState({ "messages": message_thread });
-        console.log(message_thread);
     }
 
     render() {
