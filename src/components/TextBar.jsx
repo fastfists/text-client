@@ -6,20 +6,25 @@ import axios from 'axios';
 export default class Bar extends Component {
     
     send_message(e){
-        var message = document.getElementById('message').value;
+        e.preventDefault();
+        console.log("sending message")
+        var element = document.getElementById('message');
+        var message = element.value;
+        element.value = "";
         console.log(this.props.number);
         console.log(message);
-        axios.post(`https://fastfist.pythonanywhere.com/send/${this.props.number}/${message}`)
+        this.props.setMessages();
+        axios.get(`https://fastfist.pythonanywhere.com/send/${this.props.number}/${message}`)
     }
 
     render() {
         return (
             <>
-                <Form onSubmit={e => this.send_message(e)}>
+                <Form noValidate={true} onSubmit={e =>this.send_message(e)}>
                     <Form.Group>
                         <Row noGutters={true}>
                             <Col md="auto">
-                                <Button size="lg" md="auto" type="submit" onClick={e => this.send_message(e)}>
+                                <Button size="lg" type="submit"  md="auto" onClick={e => this.send_message(e)}>
                                     Send
                                 </Button>
                             </Col>
