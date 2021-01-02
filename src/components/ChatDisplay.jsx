@@ -9,7 +9,7 @@ export default class ChatDisplay extends Component {
 
     constructor() {
         super();
-        this.state = {
+       this.state = {
             number: "",
             messages: []
         }

@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import '../App.css';
 import axios from 'axios';
 import ChatDisplay from "./ChatDisplay"
-import { ListGroup, Col, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import { SideBar } from './SideBar';
+
+
 export default class Contacts extends Component {
 
     state = {
@@ -24,23 +26,23 @@ export default class Contacts extends Component {
     setNumber = (number) => {
         console.log("setting state");
         console.log(number);
-        this.setState({ 'number': number });
+        this.setState({'number': number });
     }
 
 
     render() {
-        console.log(this.props);
         return (
-            <>
                 <Row>
                     <Col md="4" >
+                        <br />
+                        <br />
+
                         <SideBar contacts={this.state.contacts} setNumber={this.setNumber} />
                     </Col>
                     <Col>
-                        <ChatDisplay number={"14697740422"} />
+                        <ChatDisplay number={this.state.number} />
                     </Col>
                 </Row>
-            </>
         );
 
     }

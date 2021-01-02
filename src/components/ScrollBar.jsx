@@ -13,6 +13,7 @@ export default class Scroll extends Component {
         this.spring = this.springSystem.createSpring();
         this.spring.addListener({ onSpringUpdate: this.handleSpringUpdate });
         this.scrollToBottom.bind(this);
+        setTimeout(() => this.scrollToBottom(), 500);
     }
 
     componentWillUnmount() {
